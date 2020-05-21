@@ -1,0 +1,38 @@
+.category{
+  padding:20px
+}
+.border-round{
+  border: 1px solid grey;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 5em;
+  height: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 14px;
+}
+.imgTabs {
+  width: 40px;
+}
+
+.R2 {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  margin-left: 1.1rem;
+  width: 71px;
+}
+
+.R3 {
+  margin-left: 2rem;
+}
+
+.textP {
+  margin-left: 0.6rem;
+  margin-right: 1rem;
+}
+
+.RowCat {
+  margin-right: -5rem;
+}

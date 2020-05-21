@@ -1,0 +1,85 @@
+.CardH {
+    width: 159px;
+    padding: 10px;
+    margin: 7px;
+}
+
+.Caro {
+    padding-top: 62px;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: center;
+}
+
+.search-icon {
+    font-size: 50px;
+    color: #990000;
+}
+
+.ModalS {
+  background-color: whitesmoke;
+  text-align: center;
+  color: #990000;
+  padding-top: 2px;
+}
+
+.ModalS1 {
+  background-color: whitesmoke;
+  text-align: center;
+  color: #990000;
+  padding-top: 3px;
+  padding-bottom: 2px;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+  display: inline-block;
+  
+}
+
+.butt {
+background-color: grey;
+width: 90px;
+border-radius: 11px;
+}
+
+.logmod {
+  width: 80px;    
+  margin-left: 12.4rem;
+  margin-right: 10rem;
+}
+
+.a1 {
+  background-color: mediumturquoise;
+}
+
+.ColKat {
+  padding-top: 1.1rem;
+}
+
+.RowH {
+margin-top: 20px;
+}
+
+.textC {
+margin-bottom: 0px;
+}
+
+.TextTab {
+  color: maroon;
+}
+
+.nav-tabs a {
+  color: maroon;
+}
+
+.typ {
+  color: maroon;
+}

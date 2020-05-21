@@ -1,0 +1,53 @@
+.Card {
+  align-items: center;
+  width: 300px;
+  margin: auto;
+  padding: 30px 10px;
+}
+
+.Row1 {
+  padding-top: 62px;
+}
+
+.FormLogin {
+  margin: 20px !important;
+}
+
+.bg {
+  position: absolute;
+  z-index: -1;
+  top: 100%;
+  left: 50%;
+  width: 800px;
+  transform: translate(-50%, -50%)
+}
+
+.button {
+  background-color: maroon;
+  border: none;
+  border-radius: 11px;
+  color: white;
+  width: 130px;
+  height: 50px;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 2px;  cursor: pointer;
+}
+
+.Bod2 {
+  text-align: center;
+}
+
+.head1 {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.ava, .up {
+  margin-right: 19rem;
+  margin-left: 14rem;
+  width: 90px;
+}

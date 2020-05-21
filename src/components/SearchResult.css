@@ -1,0 +1,19 @@
+.RowSR {
+    margin-top: 70px;
+}
+
+.CardSR {
+    margin-top: 70px;
+}
+
+p {
+  color: maroon;
+}
+
+.MuiSvgIcon-root {
+  color: maroon;
+}
+
+.RowW {
+  min-height:80vh
+}

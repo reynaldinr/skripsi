@@ -1,0 +1,60 @@
+.CardR {
+    align-items: center;
+    width: 400px;
+    padding: 20px;
+  }
+.logo-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}  
+.Logo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 120px;
+  height: 108px;
+}  
+.Row1 {
+  padding-top: 62px;
+}
+
+.FormReg {
+  margin: 20px !important;
+}
+
+.button2 {
+  background-color: maroon;
+  border: none;
+  border-radius: 11px;
+  color: white;
+  width: 130px;
+  height: 50px;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 14px 26px; 
+  cursor: pointer;
+}
+
+.imgLoad {
+  width: 90px;
+  top: -10px;
+  position: relative;
+}
+
+.imgLoad2 {
+  width: 35px;
+  margin-bottom: 10px;
+
+}
+
+.MuiOutlinedInput-multiline {
+  width: 224px;
+}
+
+.text {
+  color: maroon;
+
+}

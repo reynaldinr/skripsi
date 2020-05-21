@@ -1,0 +1,42 @@
+.NavBar {
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.ButtonL {
+    width: 90px;
+    height: 30px;
+}
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus{
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.border {
+    border-left:thick solid grey;
+    margin-left: 4px;
+    margin-right: 8px;
+}
+
+.NavBar p {
+    margin-top: 0px; 
+    margin-bottom: 0px;
+    color: #990000
+}
+.navbar-nav > a{
+    color: #990000;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus{
+  background-color: grey !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:focus{
+  background-color: maroon !important;
+  border: none !important;
+  box-shadow: none !important;
+}
