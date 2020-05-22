@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import { Container, Modal, Jumbotron, Row, Col, Button, Carousel, CarouselItem, Form, FormControl, Card, Nav, Tabs, Tab} from 'react-bootstrap';
+import { Link } from 'react-router-dom'
+import { Container, Modal, Row, Col, Button, Carousel, CarouselItem, Form, FormControl, Card, Nav, Tabs, Tab} from 'react-bootstrap';
 import { Typography } from '@material-ui/core';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import { MdSearch } from 'react-icons/md';
@@ -13,91 +13,87 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import Tabs2 from './TabsKategori2';
 
 export class Home extends Component {
-   state={
-      show:false,
-      login:false
-   }
-   showModal=()=>{
+  state={
+    show:false,
+    login:false
+  }
+  showModal=()=>{
+    this.setState({
+      show:true
+    })
+  }
+  closeModal=()=>{
+    this.setState({
+      show:false
+    })
+  }
+  componentDidMount(){
+    if(localStorage.getItem('Login')){
       this.setState({
-         show:true
+        login:true
       })
-   }
-   closeModal=()=>{
+    }
+    else{
       this.setState({
-         show:false
+        login:false
       })
-   }
-   componentDidMount(){
-      if(localStorage.getItem('Login')){
-         this.setState({
-            login:true
-         })
-      }
-      else{
-         this.setState({
-            login:false
-         })
-      }
-   }
-    render() {
-        return (
-            <Container>
-             <Carousel className="Caro" >
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src="./assets/car.jpg"
-                    />
-                    <Carousel.Caption>
-                    <h3>POTENSIANA</h3>
-                    <h6>PUSAT PERDAGANGAN ONLINE BERBASIS BLOCKCHAIN</h6>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src="./assets/car.jpg"
-                    />
-
-                    <Carousel.Caption>
-                    <h3>POTENSIANA</h3>
-                    <h6>PUSAT PERDAGANGAN ONLINE BERBASIS BLOCKCHAIN</h6>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src="./assets/car.jpg"               />
-                    <Carousel.Caption>
-                    <h3>POTENSIANA</h3>
-                    <h6>PUSAT PERDAGANGAN ONLINE BERBASIS BLOCKCHAIN</h6>
-                    </Carousel.Caption>
-                </Carousel.Item>
-             </Carousel>
-
-             <Row className="RowH">
-                 <Col className="ColKat" xs={4} >
-                    <Typography variant="h5" align="center" className="typ"> KATEGORI </Typography>
-                     <Tabs defaultActiveKey="barang" id="uncontrolled-tab-example" align="center">
-                        <Tab eventKey="barang" title="Barang">
-                        <Tabs1 />
-                        </Tab>
-        
-                       <Tab eventKey="provinsi" title="Provinsi">
-                       <Tabs2 />
-                       </Tab>
-                    </Tabs>
-                 </Col>
-                 <Col xs={8}>
-                     <Row>
-                      <AutoComplete /> 
-                     
-                     <Link to="/SearchResult">
-                       <div className="search-icon">  
-                        <MdSearch/>
-                      </div>
-                     </Link>
-                     </Row>
+    }
+  }
+  render() {
+    return (
+      <Container>
+        <Carousel className="Caro" >
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="./assets/car.jpg"
+            />
+            <Carousel.Caption>
+              <h3>POTENSIANA</h3>
+              <h6>PUSAT PERDAGANGAN ONLINE BERBASIS BLOCKCHAIN</h6>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="./assets/car.jpg"
+            />
+            <Carousel.Caption>
+              <h3>POTENSIANA</h3>
+              <h6>PUSAT PERDAGANGAN ONLINE BERBASIS BLOCKCHAIN</h6>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="./assets/car.jpg"/>
+            <Carousel.Caption>
+              <h3>POTENSIANA</h3>
+              <h6>PUSAT PERDAGANGAN ONLINE BERBASIS BLOCKCHAIN</h6>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+        <Row className="RowH">
+          <Col className="ColKat" xs={4} >
+            <Typography variant="h5" align="center" className="typ"> KATEGORI </Typography>
+            <Tabs defaultActiveKey="barang" id="uncontrolled-tab-example" align="center">
+              <Tab eventKey="barang" title="Barang">
+                <Tabs1 />
+              </Tab>
+              <Tab eventKey="provinsi" title="Provinsi">
+                <Tabs2 />
+              </Tab>
+            </Tabs>
+          </Col>
+          <Col xs={8}>
+            <Row>
+              <AutoComplete /> 
+              <Link to="/SearchResult">
+                <div className="search-icon">  
+                  <MdSearch/>
+                </div>
+              </Link>
+            </Row>
                      
                      <Row >
                         <Col xs={3}>
