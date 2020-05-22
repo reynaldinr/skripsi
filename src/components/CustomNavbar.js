@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import { Container, Navbar, NavItem, Nav, Form, FormControl, Button, Dropdown} from 'react-bootstrap';
-import { Link, Redirect } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Container, Navbar, Nav, Dropdown} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import './CustomNavbar.css'
-import { shadows } from '@material-ui/system';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import { connect } from 'react-redux'
 
 class CustomNavbar extends Component {
@@ -44,37 +43,36 @@ class CustomNavbar extends Component {
               </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-              <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto"> </Nav>
-                <Nav>
-                { this.state.login? <>
-                  <Link to="/Cart" fill="red">
-                    <ShoppingCartIcon variant="filled"/>{this.props.addedItems}
-                  </Link>
-                  <div className="border"> </div>
-                    <Dropdown>
-                      <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                       <AccountCircleIcon/>
-                      </Dropdown.Toggle>
-                   <Dropdown.Menu>       
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="mr-auto"></Nav>
+              <Nav>
+              { this.state.login ? <>
+                <Link to="/Cart" fill="red">
+                  <ShoppingCartIcon variant="filled"/>{this.props.addedItems}
+                </Link>
+                <div className="border"></div>
+                <Dropdown>
+                  <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                    <AccountCircleIcon/>
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>       
                     <Dropdown.Item href="/EditProfile">Profile</Dropdown.Item>
                     <Dropdown.Item href="/Wishlist">Wishlist</Dropdown.Item>
                     <a href='/'><Dropdown.Item onClick={()=>this.logout()}>Log Out</Dropdown.Item></a>
-                   </Dropdown.Menu>
+                  </Dropdown.Menu>
                 </Dropdown>
-                    
-                    </> :
-                    <Link to="/Login">
-                        <p>Masuk</p>
-                    </Link>
-    }
-                </Nav>
-                </Navbar.Collapse>
-                </Container>
-            </Navbar>
-         </div>
-        )
-    }
+              </> :
+                <Link to="/Login">
+                  <p>Masuk</p>
+                </Link>
+              }
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      </div>
+    )
+  }
 }
 const mapStateToProps = (state)=>{
   return {

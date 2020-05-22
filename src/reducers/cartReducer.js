@@ -1,15 +1,13 @@
 const initState = {
   addedItems:0,
   total: 0
-
 }
+
 const cartReducer= (state = initState,action)=>{
- 
-  //INSIDE HOME COMPONENT
   if(action.type === 'ADD_TO_CART'){
     return{
       ...state,
-      addedItems: state.addedItems +1 
+      addedItems: state.addedItems + action.payload
     }    
       //   let addedItem = state.items.find(item=> item.id === action.id)
       //   //check if the action id exists in the addedItems

@@ -3,7 +3,7 @@ import "./Cart.css";
 
 class inputPage extends Component {
   state = {
-    value: 0
+    value: 1
   }
 
   decrease = () => {

@@ -531,8 +531,8 @@ export class Home extends Component {
                    
                  </Col>
             </Row>
-            <Modal show={this.state.show} onHide={()=>this.closeModal()}centered>
-                <Modal.Header closeButton onClick={()=>this.closeModal()} className="ModalS1"> <img src="assets/logo2.png" className="logmod" centered/></Modal.Header>
+            <Modal show={this.state.show} onHide={()=>this.closeModal()}centered={true}>
+                <Modal.Header closeButton onClick={()=>this.closeModal()} className="ModalS1"> <img src="assets/logo2.png" className="logmod" centered={true}/></Modal.Header>
                 <Modal.Body className="ModalS">
                   <p> KAMU HARUS <h4>MASUK / DAFTAR</h4> TERLEBIH DAHULU</p>
                 </Modal.Body>

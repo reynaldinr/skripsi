@@ -62,7 +62,7 @@ export class TabsKategori extends Component {
           </Col>
         </Row> 
         <Row className="RowCat">
-        <Col xs={3} md={3} centered>
+        <Col xs={3} md={3} centered={true}>
             <Link to="/SearchResult">
               <div className="border-round">
                 <Image src="./assets/tangan.png" className="imgTabs"/>

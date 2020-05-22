@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Switch from './Switch';
 import Switch2 from './Switch2';
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,39 +13,55 @@ import {Container, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import './Cart.css';
 
-
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
   },
-});
+})
 
-function ccyFormat(num) {
-  return `${num.toFixed(2)}`;
-}
-
-function priceRow(qty, harga) {
-  return qty * harga;
-}
-
-function createRow(prod, toko, tawar, qty, harga) {
-  const price = priceRow(qty, harga);
-  return { prod, toko, qty, tawar, harga, price };
-}
-
-function subtotal(items) {
-  return items.map(({ price }) => price).reduce((total, i) => total + i, 0);
-}
-
-const rows = [
-  createRow(<img src="./assets/kopi.jpg" className="kopi"></img>, 'verina',<Switch/>, 4, 2500),
-  createRow(<img src="./assets/kopi.jpg" className="kopi"></img>, 'sabar',<Switch2/>, 10, 5000),
-  createRow(<img src="./assets/kopi.jpg" className="kopi"></img>, 'subur',<Switch/>, 2, 1250),
-];
-
-const invoiceSubtotal = subtotal(rows);
 export default function SpanningTable() {
-  const classes = useStyles();
+  const classes = useStyles()
+  const [products, setProducts] = useState([{
+    img:'./assets/kopi.jpg',
+    store:'verina',
+    qty: 4,
+    price: 2500,
+    bargain:true,
+    bargainPrice:'-'
+  },{
+    img:'./assets/kopi.jpg',
+    store:'sabar',
+    qty: 10,
+    price: 5000,
+    bargain:false,
+    bargainPrice:'-'
+  },{
+    img:'./assets/kopi.jpg',
+    store:'subur',
+    qty: 2,
+    price: 1250,
+    bargain:true,
+    bargainPrice:'-'
+  }])
+  const [bargainPrice, setBargainPrice] = useState(0)
+
+  const ccyFormat = (num) =>{
+    return `${num.toFixed(2)}`
+  }
+  
+  const totalPrice = (qty, price) => {
+    return qty * price;
+  }
+  const subtotal = (items) => {
+    return items.map(({ price, qty }) => (price*qty)).reduce((total, i) => total + i, 0);
+  }
+  const handleBargainPrice = (i, value) =>{
+    let newProducts = products
+    setBargainPrice(value)
+    newProducts[i].bargainPrice=value
+    setProducts(newProducts)
+  }
+  const invoiceSubtotal = subtotal(products)
 
   return (
     <Container>
@@ -53,35 +69,37 @@ export default function SpanningTable() {
       <Table className={classes.table} aria-label="spanning table">
         <TableHead>
           <TableRow>
-            <TableCell align="center" colSpan={5}>
-              Details
+            <TableCell align="center" colSpan={6}>
+              Details {bargainPrice}
             </TableCell>
             <TableCell align="right">Price</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>prod</TableCell>
-            <TableCell align="right">toko</TableCell>
-            <TableCell align="right">tawar</TableCell>
-            <TableCell align="right">qty</TableCell>
-            <TableCell align="right">harga</TableCell>
-            <TableCell align="right">total</TableCell>
+            <TableCell>Produk</TableCell>
+            <TableCell align="right">Toko</TableCell>
+            <TableCell align="right">Tawar</TableCell>
+            <TableCell align="right">Harga Tawar</TableCell>
+            <TableCell align="right">Kuantitas</TableCell>
+            <TableCell align="right">Harga</TableCell>
+            <TableCell align="right">Total</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.prod}>
-              <TableCell>{row.prod}</TableCell>
-              <TableCell align="right">{row.toko}</TableCell>
-              <TableCell align="right">{row.tawar}</TableCell>
-              <TableCell align="right">{row.qty}</TableCell>
-              <TableCell align="right">{row.harga}</TableCell>
-              <TableCell align="right">{ccyFormat(row.price)}</TableCell>
+          {products.map( (item, i)=> (
+            <TableRow key={i}>
+              <TableCell><img alt={item.store} src={item.img} className="kopi"/></TableCell>
+              <TableCell align="right">{item.store}</TableCell>
+              <TableCell align="right">{item.bargain? <Switch id={i} setBargain={handleBargainPrice}/> : <Switch2/>}</TableCell>
+              <TableCell align="right">{item.bargainPrice}</TableCell>
+              <TableCell align="right">{item.qty}</TableCell>
+              <TableCell align="right">{item.price}</TableCell>
+              <TableCell align="right">{ccyFormat(totalPrice(item.qty, item.price))}</TableCell>
             </TableRow>
           ))}
 
           <TableRow>
-            <TableCell rowSpan={5} />
-            <TableCell colSpan={4}>Subtotal</TableCell>
+            <TableCell rowSpan={6} />
+            <TableCell colSpan={5}>Subtotal</TableCell>
             <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
           </TableRow>
         </TableBody>
@@ -93,5 +111,5 @@ export default function SpanningTable() {
     </Link>
     </div>
     </Container>
-  );
+  )
 }

@@ -1,8 +1,8 @@
-export const addToCart= (id)=>{
-    return{
-        type: 'ADD_TO_CART',
-        id
-    }
+export const addToCart= (value)=>{
+  return{
+    type: 'ADD_TO_CART',
+    payload:value
+  }
 }
 //remove item action
 export const removeItem=(id)=>{

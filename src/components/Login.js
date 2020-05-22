@@ -88,7 +88,7 @@ export default class Login extends React.Component {
           </Col>
           <Col sm></Col>
         </Row> 
-        <Modal show={this.state.showModal} onHide={()=>this.closeModal()}centered>
+        <Modal show={this.state.showModal} onHide={()=>this.closeModal()} centered={true}>
           <Modal.Header closeButton onClick={()=>this.closeModal()} className="head1"> </Modal.Header>
           <Modal.Body className="Bod2">
               <h5> Berhasil Masuk</h5>

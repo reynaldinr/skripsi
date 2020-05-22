@@ -1,12 +1,12 @@
-import React from 'react';
-import Switch from '@material-ui/core/Switch';
-import {Modal, InputGroup, FormControl, Button} from 'react-bootstrap'
+import React from 'react'
+import Switch from '@material-ui/core/Switch'
+import {Modal, Button} from 'react-bootstrap'
 
 export default function Switches() {
   const [state, setState] = React.useState({
     checkedA: false,
     showModal:false,
-  });
+  })
 
   const handleChange = name => event => {
     if(event.target.checked===true){
@@ -16,13 +16,12 @@ export default function Switches() {
       setState({ ...state, [name]: event.target.checked });
     }
     console.log(state.showModal)
-}
- const handleClose=()=>{
-setState({
-  ...state, showModal:false, checkedA:false
-})
- }
-
+  }
+  const handleClose=()=>{
+    setState({
+      ...state, showModal:false, checkedA:false
+    })
+  }
   return (
     <div>
       <Switch
@@ -31,10 +30,10 @@ setState({
         value="checkedA"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
-      <Modal show={state.showModal} onHide={()=>{handleClose()}} centered >
-        <Modal.Header closeButton onClick={()=>{handleClose()}}> </Modal.Header>
+      <Modal show={state.showModal} onHide={()=>{handleClose()}} centered={true} >
+        <Modal.Header closeButton> </Modal.Header>
         <Modal.Body className="Bod">
-          <h5 centered> PRODUK TIDAK BISA DITAWAR</h5>
+          <h5 centered={true}> PRODUK TIDAK BISA DITAWAR</h5>
         </Modal.Body>
         <Modal.Footer>
             <Button closeButton onClick={()=>{handleClose()}} variant="success" className="ButtSw"> OK </Button>
