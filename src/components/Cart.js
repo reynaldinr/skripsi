@@ -70,7 +70,7 @@ export default function SpanningTable() {
         <TableHead>
           <TableRow>
             <TableCell align="center" colSpan={6}>
-              Details {bargainPrice}
+              Details
             </TableCell>
             <TableCell align="right">Price</TableCell>
           </TableRow>
