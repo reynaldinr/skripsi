@@ -7,7 +7,7 @@ const cartReducer= (state = initState,action)=>{
   if(action.type === 'ADD_TO_CART'){
     return{
       ...state,
-      addedItems: state.addedItems + action.payload
+      addedItems: state.addedItems + 1
     }    
       //   let addedItem = state.items.find(item=> item.id === action.id)
       //   //check if the action id exists in the addedItems
